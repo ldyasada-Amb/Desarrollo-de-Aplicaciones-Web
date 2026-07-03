@@ -100,3 +100,31 @@ body {
     margin-top: 20px;
     font-size: 0.9rem;
 }
+.caja-seccion-video {
+    text-align: center;
+    margin: 20px auto; /* Opcional: agrega espacio y centra el bloque */
+}
+
+.caja-seccion-categoria p {
+    text-align: justify;       /* Justifica el texto */
+    line-height: 1.6;          /* Ajusta el interlineado (1.5–1.8 es razonable) */
+    margin: 0 0 1em 0;         /* Espaciado inferior para separar párrafos */
+}
+/* Estilo para las secciones de servicios */
+.caja-seccion-reseñas,
+.caja-seccion-recomendaciones {
+    border: 2px solid #444;       /* Borde oscuro */
+    border-radius: 10px;          /* Bordes redondeados */
+    padding: 15px;                /* Espaciado interno */
+    margin: 20px 0;               /* Separación entre secciones */
+    background-color: #f9f9f9;    /* Fondo suave */
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1); /* Sombra ligera */
+}
+
+/* Estilo para los títulos dentro de las secciones */
+.titulo-servicios {
+    color: #b22222;               /* Rojo elegante */
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-align: center;
+}
