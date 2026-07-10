@@ -1,46 +1,16 @@
-// Selección de elementos
-const formContainer = document.createElement("section");
-formContainer.className = "container my-5";
-
-formContainer.innerHTML = `
-  <h3 class="mb-3 text-center">Agregar nueva película</h3>
-  <form id="movieForm" class="p-3 border rounded bg-light">
-    <div class="mb-3">
-      <label for="nombre" class="form-label">Nombre de la película</label>
-      <input type="text" id="nombre" class="form-control" placeholder="Ej: Matrix">
-    </div>
-    <div class="mb-3">
-      <label for="descripcion" class="form-label">Descripción</label>
-      <textarea id="descripcion" class="form-control" rows="3" placeholder="Breve sinopsis"></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="categoria" class="form-label">Categoría</label>
-      <select id="categoria" class="form-select">
-        <option value="">Seleccione una categoría</option>
-        <option value="Terror">Terror</option>
-        <option value="Animación">Animación</option>
-        <option value="Acción">Acción</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Agregar película</button>
-  </form>
-  <div id="mensaje" class="mt-3"></div>
-  <h4 class="mt-4">Películas agregadas:</h4>
-  <ul id="listaPeliculas" class="list-group"></ul>
-  <p class="mt-3 fw-bold">Total de registros: <span id="total">0</span></p>
-`;
-
-document.body.appendChild(formContainer);
-
 // Variables
 const movieForm = document.getElementById("movieForm");
 const mensaje = document.getElementById("mensaje");
 const listaPeliculas = document.getElementById("listaPeliculas");
 const total = document.getElementById("total");
 
+const nombre = document.getElementById("nombre");
+const descripcion = document.getElementById("descripcion");
+const categoria = document.getElementById("categoria");
+
 let contador = 0;
 
-// Función para mostrar mensajes
+// Función para mostrar mensajes generales
 function mostrarMensaje(texto, tipo = "danger") {
   mensaje.innerHTML = "";
   const alert = document.createElement("div");
@@ -49,16 +19,64 @@ function mostrarMensaje(texto, tipo = "danger") {
   mensaje.appendChild(alert);
 }
 
+// Función para mostrar error debajo de cada campo
+function mostrarError(campo, mensaje) {
+  let feedback = campo.nextElementSibling;
+  feedback.textContent = mensaje;
+  campo.classList.add("is-invalid");
+  campo.classList.remove("is-valid");
+}
+
+function mostrarValido(campo) {
+  let feedback = campo.nextElementSibling;
+  feedback.textContent = "";
+  campo.classList.remove("is-invalid");
+  campo.classList.add("is-valid");
+}
+
+// Validaciones
+function validarNombre() {
+  if (nombre.value.trim().length < 3) {
+    mostrarError(nombre, "El nombre debe tener al menos 3 caracteres.");
+    return false;
+  }
+  mostrarValido(nombre);
+  return true;
+}
+
+function validarDescripcion() {
+  if (descripcion.value.trim().length < 10) {
+    mostrarError(descripcion, "La descripción debe ser más detallada (mínimo 10 caracteres).");
+    return false;
+  }
+  mostrarValido(descripcion);
+  return true;
+}
+
+function validarCategoria() {
+  if (!categoria.value.trim()) {
+    mostrarError(categoria, "Debe seleccionar una categoría.");
+    return false;
+  }
+  mostrarValido(categoria);
+  return true;
+}
+
+// Eventos en tiempo real
+nombre.addEventListener("input", validarNombre);
+descripcion.addEventListener("input", validarDescripcion);
+categoria.addEventListener("blur", validarCategoria);
+
 // Evento submit
 movieForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const descripcion = document.getElementById("descripcion").value.trim();
-  const categoria = document.getElementById("categoria").value.trim();
+  const validoNombre = validarNombre();
+  const validoDescripcion = validarDescripcion();
+  const validoCategoria = validarCategoria();
 
-  if (!nombre || !descripcion || !categoria) {
-    mostrarMensaje("Todos los campos son obligatorios", "danger");
+  if (!validoNombre || !validoDescripcion || !validoCategoria) {
+    mostrarMensaje("Corrige los errores antes de registrar la película.", "danger");
     return;
   }
 
@@ -69,7 +87,7 @@ movieForm.addEventListener("submit", function (e) {
   li.className = "list-group-item d-flex justify-content-between align-items-center";
 
   const contenido = document.createElement("div");
-  contenido.innerHTML = `<strong>${nombre}</strong> - ${categoria}<br><small>${descripcion}</small>`;
+  contenido.innerHTML = `<strong>${nombre.value}</strong> - ${categoria.value}<br><small>${descripcion.value}</small>`;
 
   const btnEliminar = document.createElement("button");
   btnEliminar.className = "btn btn-sm btn-danger ms-3";
@@ -89,6 +107,9 @@ movieForm.addEventListener("submit", function (e) {
   contador++;
   total.textContent = contador;
 
-  // Resetear formulario
+  // Resetear formulario y clases
   movieForm.reset();
+  nombre.classList.remove("is-valid");
+  descripcion.classList.remove("is-valid");
+  categoria.classList.remove("is-valid");
 });

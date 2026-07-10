@@ -13,9 +13,10 @@
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Last Cine</a>
+            <a class="navbar-brand fw-bold" href="#">🎬 Last Cine</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">
                 <span class="navbar-toggler-icon"></span>
@@ -31,46 +32,55 @@
         </div>
     </nav>
 
-    <!-- Header mejorado -->
-    <header class="bg-dark text-white p-4 text-center">
-        <h1>Bienvenido a Last Cine</h1>
+    <!-- Header -->
+    <header class="bg-dark text-white p-5 text-center shadow">
+        <h1 class="fw-bold">Bienvenido a Last Cine</h1>
         <p class="lead">Tu espacio digital para descubrir, disfrutar y vivir el cine</p>
     </header>
 
-    <main class="container my-4">
-        <h2 class="text-center mb-4">Explicación del Trabajo</h2>
+    <!-- Sección Inicio mejorada -->
+    <main class="container my-5">
+        <h2 class="text-center mb-4 text-primary fw-bold">Explicación del Trabajo</h2>
         <section class="row mb-5">
-            <div class="col-md-6">
-                <p>
+            <!-- Texto -->
+            <div class="col-12 col-md-6">
+                <p class="fs-5 text-secondary">
                     Este trabajo se realizará conforme se vayan tratando los temas de cada semana; por ello, se irán
                     incorporando las partes que aún no se encuentran desarrolladas. La realización de esta actividad se
                     fundamenta en lo aprendido en cada tema semanal durante las clases impartidas por el docente.
                 </p>
-                <p>
+                <p class="fs-5 text-secondary">
                     El proyecto consiste en la creación de una página web, aplicando los conocimientos adquiridos en HTML,
                     JavaScript y CSS, complementados con funcionalidades prácticas para el desarrollo, siguiendo siempre la
                     guía y orientación del docente.
                 </p>
-                <button class="btn btn-primary mt-3">Leer más</button>
             </div>
-            <div class="col-md-6">
-                <img src="../../Asset/img/fotos/inicio.jpg" alt="Imagen representativa del proyecto Last Cine"
-                    class="img-fluid rounded shadow">
+            <!-- Imagen -->
+            <div class="col-12 col-md-6 text-center">
+                <img src="../../Asset/img/fotos/inicio.jpg" 
+                     alt="Imagen representativa del proyecto Last Cine"
+                     class="img-fluid rounded shadow-lg border border-3 border-primary">
             </div>
         </section>
     </main>
 
+    <!-- Aside con grilla -->
     <aside class="container my-4">
-        <div class="card p-3 m-3">
-            <h4 class="text-center">Gracias por visitar nuestra página</h4>
-            <p>
-                Esta página de películas es un espacio digital diseñado para ofrecer a los usuarios información completa y
-                atractiva sobre el mundo del cine. En ella se pueden encontrar reseñas de estrenos recientes, sinopsis de
-                clásicos, recomendaciones personalizadas y noticias relevantes de la industria.
-            </p>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <div class="card p-4 shadow-sm">
+                    <h4 class="text-center text-success fw-bold">Gracias por visitar nuestra página</h4>
+                    <p class="text-muted">
+                        Esta página de películas es un espacio digital diseñado para ofrecer a los usuarios información completa y
+                        atractiva sobre el mundo del cine. En ella se pueden encontrar reseñas de estrenos recientes, sinopsis de
+                        clásicos, recomendaciones personalizadas y noticias relevantes de la industria.
+                    </p>
+                </div>
+            </div>
         </div>
     </aside>
 
+    <!-- Footer -->
     <footer class="bg-dark text-white text-center p-3 mt-4">
         <p class="mb-0">Luis David - Sistemas Desarrollo de Aplicaciones Web 2026</p>
     </footer>
@@ -81,4 +91,5 @@
 </body>
 
 </html>
+
 
