@@ -1,4 +1,3 @@
-// Variables
 const movieForm = document.getElementById("movieForm");
 const mensaje = document.getElementById("mensaje");
 const listaPeliculas = document.getElementById("listaPeliculas");
@@ -9,6 +8,7 @@ const descripcion = document.getElementById("descripcion");
 const categoria = document.getElementById("categoria");
 
 let contador = 0;
+let peliculas = [];
 
 // Función para mostrar mensajes generales
 function mostrarMensaje(texto, tipo = "danger") {
@@ -80,9 +80,19 @@ movieForm.addEventListener("submit", function (e) {
     return;
   }
 
+  // Crear objeto película
+  const pelicula = {
+    id: Date.now(),
+    nombre: nombre.value,
+    descripcion: descripcion.value,
+    categoria: categoria.value
+  };
+
+  peliculas.push(pelicula);
+
   mostrarMensaje("Película agregada correctamente", "success");
 
-  // Crear tarjeta dinámica con Bootstrap
+  // Crear tarjeta dinámica
   const card = document.createElement("div");
   card.className = "card mb-3";
 
@@ -90,9 +100,9 @@ movieForm.addEventListener("submit", function (e) {
   cardBody.className = "card-body";
 
   cardBody.innerHTML = `
-    <h5 class="card-title">${nombre.value}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${categoria.value}</h6>
-    <p class="card-text">${descripcion.value}</p>
+    <h5 class="card-title">${pelicula.nombre}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${pelicula.categoria}</h6>
+    <p class="card-text">${pelicula.descripcion}</p>
   `;
 
   const btnEliminar = document.createElement("button");
@@ -101,6 +111,7 @@ movieForm.addEventListener("submit", function (e) {
 
   btnEliminar.addEventListener("click", function () {
     listaPeliculas.removeChild(card);
+    peliculas = peliculas.filter(p => p.id !== pelicula.id);
     contador--;
     total.textContent = contador;
     mostrarMensaje("Película eliminada", "warning");
