@@ -1,0 +1,252 @@
+/* ==========================
+   ESTILO GENERAL FUTURISTA
+========================== */
+body {
+    background: radial-gradient(circle at top left, #0a0a0f, #1a1a2e, #16213e);
+    font-family: 'Orbitron', Arial, Helvetica, sans-serif;
+    color: #e0e0e0;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+    background: linear-gradient(to right, #0f0f0f, #1a1a2e);
+    border-bottom: 4px solid #00ffe7;
+    box-shadow: 0px 0px 25px rgba(0,255,231,.6);
+}
+
+header h1 {
+    color: #00ffe7;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-shadow: 0px 0px 12px #00ffe7;
+}
+
+/* ==========================
+   MENU
+========================== */
+.navbar .nav-link {
+    color: #b0f7ff !important;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.navbar .nav-link:hover {
+    color: #ff00ff !important;
+    text-shadow: 0px 0px 8px #ff00ff;
+    transform: scale(1.15);
+}
+
+/* ==========================
+   TITULOS
+========================== */
+h2 {
+    color: #00ffe7;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px #00ffe7;
+}
+
+h3 {
+    color: #ff00ff;
+    border-left: 6px solid #00ffe7;
+    padding-left: 12px;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 8px #ff00ff;
+}
+
+h4 {
+    color: #b0f7ff;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+article {
+    background: linear-gradient(145deg,#1a1a2e,#0f0f1a);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #00ffe7;
+    box-shadow: 0px 0px 20px rgba(0,255,231,.4);
+    transition: .4s;
+    height: 100%;
+}
+
+article:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0px 0px 25px #ff00ff;
+    border-color: #ff00ff;
+}
+
+/* ==========================
+   IMÁGENES
+========================== */
+article img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #00ffe7;
+    transition: .4s;
+    box-shadow: 0px 0px 15px rgba(0,255,231,.5);
+}
+
+article img:hover {
+    transform: scale(1.08);
+    border-color: #ff00ff;
+    box-shadow: 0px 0px 20px #ff00ff;
+}
+
+/* ==========================
+   PÁRRAFOS
+========================== */
+article p {
+    color: #d9faff;
+    text-align: justify;
+}
+
+/* ==========================
+   VIDEOS
+========================== */
+.ratio iframe {
+    border-radius: 12px;
+    border: 2px solid #00ffe7;
+    box-shadow: 0px 0px 15px rgba(0,255,231,.5);
+}
+
+/* ==========================
+   FORMULARIO
+========================== */
+form {
+    background: linear-gradient(145deg,#1a1a2e,#0f0f1a) !important;
+    color: #e0e0e0;
+    border: 2px solid #00ffe7 !important;
+    box-shadow: 0px 0px 15px rgba(0,255,231,.4);
+}
+
+.form-label {
+    color: #00ffe7;
+    font-weight: bold;
+    text-shadow: 0px 0px 6px #00ffe7;
+}
+
+.form-control,
+.form-select {
+    background: #0f0f1a;
+    color: #e0e0e0;
+    border: 2px solid #00ffe7;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 12px #ff00ff;
+}
+
+/* ==========================
+   BOTÓN
+========================== */
+.btn-primary {
+    background: linear-gradient(to right,#00ffe7,#ff00ff);
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: .4s;
+    box-shadow: 0px 0px 12px rgba(0,255,231,.5);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right,#ff00ff,#00ffe7);
+    color: white;
+    transform: scale(1.08);
+    box-shadow: 0px 0px 20px #ff00ff;
+}
+
+/* ==========================
+   LISTA
+========================== */
+.list-group-item {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border: 1px solid #00ffe7;
+    transition: .3s;
+}
+
+.list-group-item:hover {
+    background: #0f0f1a;
+    color: #ff00ff;
+    text-shadow: 0px 0px 8px #ff00ff;
+}
+
+/* ==========================
+   ALERTA
+========================== */
+.alert {
+    background: linear-gradient(145deg,#1a1a2e,#0f0f1a);
+    color: #00ffe7;
+    border: 2px solid #ff00ff;
+    text-shadow: 0px 0px 8px #00ffe7;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+    background: linear-gradient(to right,#0f0f0f,#1a1a2e);
+    color: #00ffe7;
+    font-weight: bold;
+    border-top: 3px solid #ff00ff;
+    text-shadow: 0px 0px 8px #00ffe7;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0f1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00ffe7;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00ffe7;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff00ff;
+    box-shadow: 0px 0px 12px #ff00ff;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width:768px){
+
+article img{
+    height:250px;
+}
+
+h1{
+    font-size:28px;
+}
+
+}
+.btn-primary {
+    background: linear-gradient(to right,#00ffe7,#ff00ff);
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: .4s;
+    box-shadow: 0px 0px 12px rgba(0,255,231,.5);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right,#ff00ff,#00ffe7);
+    color: white;
+    transform: scale(1.08);
+    box-shadow: 0px 0px 20px #ff00ff;
+}
