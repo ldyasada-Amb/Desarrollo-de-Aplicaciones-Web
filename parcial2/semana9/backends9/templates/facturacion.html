@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+Facturación - Last Cine
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">Facturación</h2>
+
+<div class="card">
+
+    <div class="card-body">
+
+        <h5 class="card-title">
+            Registrar factura
+        </h5>
+
+        <form method="POST">
+
+            <div class="mb-3">
+                <label class="form-label">
+                    Cliente
+                </label>
+
+                <select name="cliente" class="form-select">
+
+                    {% for cliente in clientes %}
+
+                    <option value="{{ cliente.id }}">
+                        {{ cliente.nombre }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Producto
+                </label>
+
+                <select name="producto" class="form-select">
+
+                    {% for producto in productos %}
+
+                    <option value="{{ producto.id }}">
+                        {{ producto.nombre }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Cantidad
+                </label>
+
+                <input
+                    type="number"
+                    name="cantidad"
+                    class="form-control"
+                    min="1"
+                >
+
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Generar factura
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

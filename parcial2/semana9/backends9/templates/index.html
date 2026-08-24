@@ -1,0 +1,216 @@
+{# ==========================================================
+   INDEX.HTML
+   Página principal de Last Cine
+   ========================================================== #}
+
+
+{# 
+   HERENCIA DE JINJA
+
+   Le indicamos a Jinja que index.html utiliza
+   home.html como plantilla principal.
+
+   Como home.html ya tiene:
+   - HTML
+   - Bootstrap
+   - Menú
+   - CSS
+   - Footer
+   - JavaScript
+
+   no necesitamos repetirlos aquí.
+#}
+
+{% extends "home.html" %}
+
+
+{# ==========================================================
+   TÍTULO
+   ========================================================== #}
+
+{% block title %}
+
+    Inicio - Last Cine
+
+{% endblock %}
+
+
+{# ==========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================== #}
+
+{% block content %}
+
+    <div class="text-center">
+
+        {# Título de bienvenida #}
+
+        <h2 class="display-5 fw-bold">
+            Bienvenido a Last Cine
+        </h2>
+
+
+        {# Descripción del sistema #}
+
+        <p class="lead mt-3">
+            Sistema de gestión para el cine.
+        </p>
+
+
+        <p>
+            Administra productos, clientes, proveedores
+            y facturación desde un solo lugar.
+        </p>
+
+    </div>
+
+
+    {# ======================================================
+       OPCIONES DEL SISTEMA
+       ====================================================== #}
+
+    <div class="row mt-5">
+
+
+        {# --------------------------------------------------
+           PRODUCTOS
+           -------------------------------------------------- #}
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card text-center h-100">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Productos
+                    </h5>
+
+                    <p class="card-text">
+                        Gestiona los productos del cine.
+                    </p>
+
+                    {#
+                       url_for('productos')
+
+                       Busca en app.py la función:
+
+                       def productos():
+
+                       y genera automáticamente su URL.
+                    #}
+
+                    <a
+                        href="{{ url_for('productos') }}"
+                        class="btn btn-primary"
+                    >
+                        Ver productos
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {# --------------------------------------------------
+           CLIENTES
+           -------------------------------------------------- #}
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card text-center h-100">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Clientes
+                    </h5>
+
+                    <p class="card-text">
+                        Gestiona los clientes.
+                    </p>
+
+                    <a
+                        href="{{ url_for('clientes') }}"
+                        class="btn btn-primary"
+                    >
+                        Ver clientes
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {# --------------------------------------------------
+           PROVEEDORES
+           -------------------------------------------------- #}
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card text-center h-100">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Proveedores
+                    </h5>
+
+                    <p class="card-text">
+                        Gestiona los proveedores.
+                    </p>
+
+                    <a
+                        href="{{ url_for('proveedores') }}"
+                        class="btn btn-primary"
+                    >
+                        Ver proveedores
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {# --------------------------------------------------
+           FACTURACIÓN
+           -------------------------------------------------- #}
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card text-center h-100">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Facturación
+                    </h5>
+
+                    <p class="card-text">
+                        Registra y gestiona facturas.
+                    </p>
+
+                    <a
+                        href="{{ url_for('facturacion') }}"
+                        class="btn btn-success"
+                    >
+                        Facturar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

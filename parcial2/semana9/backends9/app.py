@@ -1,33 +1,56 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
+# Página principal
 @app.route("/")
 def home():
-    return "¡Hola, serviddor iniciado en la raiza!"
+    return render_template("base.html")
 
+
+
+# Página de productos
 @app.route("/productos")
 def productos():
-    return "¡Hola, productos !"
+    productos = [
+        {
+            "id": 1,
+            "nombre": "Canguil",
+            "precio": 2.50,
+            "stock": 20
+        },
+        {
+            "id": 2,
+            "nombre": "Cola",
+            "precio": 1.50,
+            "stock": 30
+        }
+    ]
 
-@app.route("/productosId")
-def prodcutosId():
-    return "¡Hola, productosId!"
+    return render_template(
+        "productos.html",
+        productos=productos
+    )
 
+
+# Página de clientes
 @app.route("/clientes")
 def clientes():
-    return "¡Hola, clientes!"
+    return render_template("clientes.html")
 
+
+# Página de proveedores
 @app.route("/proveedores")
 def proveedores():
-    return "¡Hola, proveedores!"
+    return render_template("proveedores.html")
 
+
+# Página de facturación
 @app.route("/facturacion")
 def facturacion():
-    return "¡Hola, facturacion!"
-
+    return render_template("facturacion.html")
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-    

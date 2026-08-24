@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Last Cine{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS propio -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='styles/styless.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="bg-dark text-white p-3">
+
+        <div class="container-fluid">
+            <h1 class="text-center m-0">
+                Last Cine
+            </h1>
+        </div>
+
+        <!-- MENÚ -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <div class="container-fluid">
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Mostrar menú"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav mx-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('home') }}">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('productos') }}">
+                                Productos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('clientes') }}">
+                                Clientes
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('proveedores') }}">
+                                Proveedores
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('facturacion') }}">
+                                Facturación
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+    <main class="container my-4">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-dark text-white text-center p-3">
+
+        Luis David Sistemas - Desarrollo de aplicaciones Web 2026
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- JS propio -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
