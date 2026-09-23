@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+    {% if cliente %}
+        Editar cliente - LastCine
+    {% else %}
+        Nuevo cliente - LastCine
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==========================================
+     ENCABEZADO
+     ========================================== -->
+
+<div class="mb-4">
+
+    <a
+        href="{{ url_for('clientes') }}"
+        class="btn btn-outline-secondary mb-3"
+    >
+
+        <i class="bi bi-arrow-left"></i>
+
+        Volver
+
+    </a>
+
+
+    <h1 class="fw-bold">
+
+        {% if cliente %}
+
+            <i class="bi bi-person-gear text-success"></i>
+
+            Editar cliente
+
+        {% else %}
+
+            <i class="bi bi-person-plus text-success"></i>
+
+            Nuevo cliente
+
+        {% endif %}
+
+    </h1>
+
+
+    <p class="text-muted">
+
+        {% if cliente %}
+
+            Modifica la información del cliente.
+
+        {% else %}
+
+            Registra un nuevo cliente en LastCine.
+
+        {% endif %}
+
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     FORMULARIO
+     ========================================== -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body p-4">
+
+                <form method="POST">
+
+
+                    <!-- ==================================
+                         NOMBRE
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="nombre"
+                            class="form-label fw-semibold"
+                        >
+
+                            Nombre *
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nombre"
+                            name="nombre"
+                            value="{{ cliente['nombre'] if cliente else '' }}"
+                            placeholder="Ej. Juan"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ==================================
+                         APELLIDO
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="apellido"
+                            class="form-label fw-semibold"
+                        >
+
+                            Apellido *
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="apellido"
+                            name="apellido"
+                            value="{{ cliente['apellido'] if cliente else '' }}"
+                            placeholder="Ej. Pérez"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ==================================
+                         CÉDULA
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="cedula"
+                            class="form-label fw-semibold"
+                        >
+
+                            Cédula *
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="cedula"
+                            name="cedula"
+                            value="{{ cliente['cedula'] if cliente else '' }}"
+                            placeholder="Ej. 0102030405"
+                            maxlength="10"
+                            minlength="10"
+                            pattern="[0-9]{10}"
+                            inputmode="numeric"
+                            required
+                        >
+
+
+                        <div class="form-text">
+
+                            Ingresa la cédula de 10 dígitos.
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- ==============================
+                             TELÉFONO
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="telefono"
+                                class="form-label fw-semibold"
+                            >
+
+                                Teléfono
+
+                            </label>
+
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="telefono"
+                                name="telefono"
+                                value="{{ cliente['telefono'] if cliente else '' }}"
+                                placeholder="Ej. 0991234567"
+                                maxlength="10"
+                                inputmode="numeric"
+                            >
+
+                        </div>
+
+
+                        <!-- ==============================
+                             EMAIL
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label fw-semibold"
+                            >
+
+                                Correo electrónico
+
+                            </label>
+
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                value="{{ cliente['email'] if cliente else '' }}"
+                                placeholder="Ej. cliente@email.com"
+                                maxlength="150"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         INFORMACIÓN
+                         ================================== -->
+
+                    <div class="alert alert-info">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        Los campos marcados con
+                        <strong>*</strong>
+                        son obligatorios.
+
+                    </div>
+
+
+                    <!-- ==================================
+                         BOTONES
+                         ================================== -->
+
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <a
+                            href="{{ url_for('clientes') }}"
+                            class="btn btn-secondary"
+                        >
+
+                            <i class="bi bi-x-circle"></i>
+
+                            Cancelar
+
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-success"
+                        >
+
+                            {% if cliente %}
+
+                                <i class="bi bi-save"></i>
+
+                                Guardar cambios
+
+                            {% else %}
+
+                                <i class="bi bi-person-plus"></i>
+
+                                Guardar cliente
+
+                            {% endif %}
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

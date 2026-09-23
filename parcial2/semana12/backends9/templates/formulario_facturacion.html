@@ -1,0 +1,545 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Nueva factura - LastCine
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==========================================
+     ENCABEZADO
+     ========================================== -->
+
+<div class="mb-4">
+
+    <a
+        href="{{ url_for('facturacion') }}"
+        class="btn btn-outline-secondary mb-3"
+    >
+
+        <i class="bi bi-arrow-left"></i>
+
+        Volver
+
+    </a>
+
+
+    <h1 class="fw-bold">
+
+        <i class="bi bi-cart-plus text-primary"></i>
+
+        Nueva factura
+
+    </h1>
+
+
+    <p class="text-muted">
+        Registra una nueva venta de película.
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     FORMULARIO
+     ========================================== -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body p-4">
+
+                <form
+                    method="POST"
+                    id="formFactura"
+                >
+
+
+                    <!-- ==================================
+                         CLIENTE
+                         ================================== -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="cliente_id"
+                            class="form-label fw-semibold"
+                        >
+
+                            <i class="bi bi-person"></i>
+
+                            Cliente *
+
+                        </label>
+
+
+                        {% if clientes %}
+
+                            <select
+                                class="form-select"
+                                id="cliente_id"
+                                name="cliente_id"
+                                required
+                            >
+
+                                <option value="">
+                                    -- Selecciona un cliente --
+                                </option>
+
+
+                                {% for cliente in clientes %}
+
+                                    <option
+                                        value="{{ cliente['id'] }}"
+                                    >
+
+                                        {{ cliente['nombre'] }}
+                                        {{ cliente['apellido'] }}
+
+                                        -
+                                        {{ cliente['cedula'] }}
+
+                                    </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        {% else %}
+
+                            <div class="alert alert-warning">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                                No existen clientes registrados.
+
+                                <a
+                                    href="{{ url_for('nuevo_cliente') }}"
+                                    class="alert-link"
+                                >
+                                    Registrar cliente
+                                </a>
+
+                                antes de crear una factura.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ==================================
+                         PELÍCULA
+                         ================================== -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="pelicula_id"
+                            class="form-label fw-semibold"
+                        >
+
+                            <i class="bi bi-film"></i>
+
+                            Película *
+
+                        </label>
+
+
+                        {% if peliculas %}
+
+                            <select
+                                class="form-select"
+                                id="pelicula_id"
+                                name="pelicula_id"
+                                required
+                            >
+
+                                <option
+                                    value=""
+                                    data-precio="0"
+                                    data-stock="0"
+                                >
+
+                                    -- Selecciona una película --
+
+                                </option>
+
+
+                                {% for pelicula in peliculas %}
+
+                                    <option
+                                        value="{{ pelicula['id'] }}"
+                                        data-precio="{{ pelicula['precio'] }}"
+                                        data-stock="{{ pelicula['stock'] }}"
+                                    >
+
+                                        {{ pelicula['titulo'] }}
+
+                                        -
+                                        {{ pelicula['genero'] }}
+
+                                        -
+                                        ${{ "%.2f"|format(pelicula['precio']) }}
+
+                                        -
+                                        Stock:
+                                        {{ pelicula['stock'] }}
+
+                                    </option>
+
+                                {% endfor %}
+
+                            </select>
+
+
+                            <!-- INFORMACIÓN DE PELÍCULA -->
+
+                            <div
+                                id="informacionPelicula"
+                                class="mt-3 d-none"
+                            >
+
+                                <div class="row g-2">
+
+                                    <div class="col-md-6">
+
+                                        <div class="alert alert-info mb-0">
+
+                                            <small class="d-block">
+                                                Precio unitario
+                                            </small>
+
+                                            <strong
+                                                id="precioUnitario"
+                                                class="fs-5"
+                                            >
+                                                $0.00
+                                            </strong>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+
+                                        <div class="alert alert-secondary mb-0">
+
+                                            <small class="d-block">
+                                                Stock disponible
+                                            </small>
+
+                                            <strong
+                                                id="stockDisponible"
+                                                class="fs-5"
+                                            >
+                                                0
+                                            </strong>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        {% else %}
+
+                            <div class="alert alert-warning">
+
+                                <i class="bi bi-exclamation-triangle"></i>
+
+                                No existen películas con stock disponible.
+
+                                <a
+                                    href="{{ url_for('nueva_pelicula') }}"
+                                    class="alert-link"
+                                >
+                                    Agregar película
+                                </a>
+
+                                o verifica el stock disponible.
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- ==================================
+                         CANTIDAD
+                         ================================== -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="cantidad"
+                            class="form-label fw-semibold"
+                        >
+
+                            <i class="bi bi-hash"></i>
+
+                            Cantidad *
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="cantidad"
+                            name="cantidad"
+                            value="1"
+                            min="1"
+                            step="1"
+                            required
+                        >
+
+
+                        <div class="form-text">
+
+                            La cantidad no puede superar el stock disponible.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         TOTAL
+                         ================================== -->
+
+                    <div class="card bg-light border-0 mb-4">
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <span class="fw-semibold">
+
+                                    Total de la venta
+
+                                </span>
+
+
+                                <span
+                                    id="totalFactura"
+                                    class="fs-3 fw-bold text-success"
+                                >
+
+                                    $0.00
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         ADVERTENCIA
+                         ================================== -->
+
+                    <div class="alert alert-info">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        Al registrar la factura se descontará
+                        automáticamente la cantidad vendida del stock
+                        de la película.
+
+                    </div>
+
+
+                    <!-- ==================================
+                         BOTONES
+                         ================================== -->
+
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <a
+                            href="{{ url_for('facturacion') }}"
+                            class="btn btn-secondary"
+                        >
+
+                            <i class="bi bi-x-circle"></i>
+
+                            Cancelar
+
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                            {% if not clientes or not peliculas %}
+                                disabled
+                            {% endif %}
+                        >
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Registrar factura
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     JAVASCRIPT DEL FORMULARIO
+     ========================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const peliculaSelect =
+        document.getElementById("pelicula_id");
+
+    const cantidadInput =
+        document.getElementById("cantidad");
+
+    const totalFactura =
+        document.getElementById("totalFactura");
+
+    const precioUnitario =
+        document.getElementById("precioUnitario");
+
+    const stockDisponible =
+        document.getElementById("stockDisponible");
+
+    const informacionPelicula =
+        document.getElementById("informacionPelicula");
+
+
+    function actualizarFactura() {
+
+        if (!peliculaSelect || !cantidadInput) {
+            return;
+        }
+
+
+        const opcion =
+            peliculaSelect.options[peliculaSelect.selectedIndex];
+
+
+        if (!opcion || !opcion.value) {
+
+            if (informacionPelicula) {
+                informacionPelicula.classList.add("d-none");
+            }
+
+            if (totalFactura) {
+                totalFactura.textContent = "$0.00";
+            }
+
+            return;
+        }
+
+
+        const precio =
+            parseFloat(opcion.dataset.precio) || 0;
+
+        const stock =
+            parseInt(opcion.dataset.stock) || 0;
+
+        let cantidad =
+            parseInt(cantidadInput.value) || 0;
+
+
+        if (cantidad < 1) {
+            cantidad = 1;
+        }
+
+
+        if (cantidad > stock) {
+            cantidad = stock;
+            cantidadInput.value = stock;
+        }
+
+
+        if (precioUnitario) {
+
+            precioUnitario.textContent =
+                "$" + precio.toFixed(2);
+
+        }
+
+
+        if (stockDisponible) {
+
+            stockDisponible.textContent =
+                stock;
+
+        }
+
+
+        if (informacionPelicula) {
+
+            informacionPelicula.classList.remove("d-none");
+
+        }
+
+
+        const total =
+            precio * cantidad;
+
+
+        if (totalFactura) {
+
+            totalFactura.textContent =
+                "$" + total.toFixed(2);
+
+        }
+
+    }
+
+
+    if (peliculaSelect) {
+
+        peliculaSelect.addEventListener(
+            "change",
+            actualizarFactura
+        );
+
+    }
+
+
+    if (cantidadInput) {
+
+        cantidadInput.addEventListener(
+            "input",
+            actualizarFactura
+        );
+
+    }
+
+
+    actualizarFactura();
+
+});
+
+</script>
+
+{% endblock %}

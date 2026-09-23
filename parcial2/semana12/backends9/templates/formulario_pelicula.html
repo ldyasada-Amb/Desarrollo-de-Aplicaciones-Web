@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+    {% if pelicula %}
+        Editar película - LastCine
+    {% else %}
+        Nueva película - LastCine
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==========================================
+     ENCABEZADO
+     ========================================== -->
+
+<div class="mb-4">
+
+    <a
+        href="{{ url_for('peliculas') }}"
+        class="btn btn-outline-secondary mb-3"
+    >
+        <i class="bi bi-arrow-left"></i>
+        Volver
+    </a>
+
+    <h1 class="fw-bold">
+
+        {% if pelicula %}
+
+            <i class="bi bi-pencil-square text-primary"></i>
+            Editar película
+
+        {% else %}
+
+            <i class="bi bi-plus-circle text-primary"></i>
+            Nueva película
+
+        {% endif %}
+
+    </h1>
+
+    <p class="text-muted">
+        {% if pelicula %}
+            Modifica la información de la película.
+        {% else %}
+            Registra una nueva película en el catálogo.
+        {% endif %}
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     FORMULARIO
+     ========================================== -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body p-4">
+
+                <form method="POST">
+
+
+                    <!-- ==================================
+                         TÍTULO
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="titulo"
+                            class="form-label fw-semibold"
+                        >
+                            Título *
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="titulo"
+                            name="titulo"
+                            value="{{ pelicula['titulo'] if pelicula else '' }}"
+                            placeholder="Ej. Avengers: Endgame"
+                            required
+                            maxlength="150"
+                        >
+
+                    </div>
+
+
+                    <!-- ==================================
+                         GÉNERO
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="genero"
+                            class="form-label fw-semibold"
+                        >
+                            Género *
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="genero"
+                            name="genero"
+                            value="{{ pelicula['genero'] if pelicula else '' }}"
+                            placeholder="Ej. Acción"
+                            required
+                            maxlength="100"
+                        >
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- ==============================
+                             PRECIO
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="precio"
+                                class="form-label fw-semibold"
+                            >
+                                Precio *
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    $
+                                </span>
+
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="precio"
+                                    name="precio"
+                                    value="{{ pelicula['precio'] if pelicula else '' }}"
+                                    placeholder="0.00"
+                                    min="0"
+                                    step="0.01"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ==============================
+                             STOCK
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="stock"
+                                class="form-label fw-semibold"
+                            >
+                                Stock *
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="stock"
+                                name="stock"
+                                value="{{ pelicula['stock'] if pelicula else '' }}"
+                                placeholder="0"
+                                min="0"
+                                step="1"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         INFORMACIÓN
+                         ================================== -->
+
+                    <div class="alert alert-info">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        Los campos marcados con
+                        <strong>*</strong>
+                        son obligatorios.
+
+                    </div>
+
+
+                    <!-- ==================================
+                         BOTONES
+                         ================================== -->
+
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <a
+                            href="{{ url_for('peliculas') }}"
+                            class="btn btn-secondary"
+                        >
+                            <i class="bi bi-x-circle"></i>
+                            Cancelar
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+
+                            {% if pelicula %}
+
+                                <i class="bi bi-save"></i>
+                                Guardar cambios
+
+                            {% else %}
+
+                                <i class="bi bi-plus-circle"></i>
+                                Guardar película
+
+                            {% endif %}
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

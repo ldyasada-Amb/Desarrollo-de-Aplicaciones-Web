@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+    <div class="container">
+
+        <!-- ==========================================
+             LOGO / NOMBRE
+             ========================================== -->
+
+        <a
+            class="navbar-brand fw-bold"
+            href="{{ url_for('index') }}"
+        >
+            <i class="bi bi-film"></i>
+            LastCine
+        </a>
+
+
+        <!-- ==========================================
+             BOTÓN RESPONSIVE
+             ========================================== -->
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuPrincipal"
+            aria-controls="menuPrincipal"
+            aria-expanded="false"
+            aria-label="Mostrar menú"
+        >
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- ==========================================
+             MENÚ
+             ========================================== -->
+
+        <div
+            class="collapse navbar-collapse"
+            id="menuPrincipal"
+        >
+
+            <ul class="navbar-nav ms-auto">
+
+                <!-- INICIO -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('index') }}"
+                    >
+                        <i class="bi bi-house-door"></i>
+                        Inicio
+                    </a>
+
+                </li>
+
+
+                <!-- PELÍCULAS -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('peliculas') }}"
+                    >
+                        <i class="bi bi-film"></i>
+                        Películas
+                    </a>
+
+                </li>
+
+
+                <!-- CLIENTES -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('clientes') }}"
+                    >
+                        <i class="bi bi-people"></i>
+                        Clientes
+                    </a>
+
+                </li>
+
+
+                <!-- PROVEEDORES -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('proveedores') }}"
+                    >
+                        <i class="bi bi-truck"></i>
+                        Proveedores
+                    </a>
+
+                </li>
+
+
+                <!-- FACTURACIÓN -->
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ url_for('facturacion') }}"
+                    >
+                        <i class="bi bi-receipt"></i>
+                        Facturación
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

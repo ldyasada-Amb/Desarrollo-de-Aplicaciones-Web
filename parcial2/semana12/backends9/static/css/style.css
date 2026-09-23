@@ -1,0 +1,1149 @@
+/* ==========================================
+   LASTCINE
+   ESTILOS MODERNOS - ESTILO STREAMING
+   ========================================== */
+
+
+/* ==========================================
+   VARIABLES
+   ========================================== */
+
+:root {
+
+    --lastcine-primary: #8b5cf6;
+    --lastcine-primary-dark: #6d28d9;
+    --lastcine-secondary: #3b82f6;
+    --lastcine-accent: #ec4899;
+
+    --lastcine-dark: #0b0b12;
+    --lastcine-dark-2: #11111b;
+    --lastcine-dark-3: #181824;
+
+    --lastcine-light: #f8fafc;
+    --lastcine-text: #e5e7eb;
+    --lastcine-muted: #9ca3af;
+
+    --lastcine-success: #22c55e;
+    --lastcine-warning: #f59e0b;
+    --lastcine-danger: #ef4444;
+
+    --lastcine-radius: 16px;
+
+    --lastcine-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+
+    --lastcine-glow:
+        0 0 25px rgba(139, 92, 246, 0.25);
+
+}
+
+
+/* ==========================================
+   BODY
+   ========================================== */
+
+body {
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(139, 92, 246, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(59, 130, 246, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0b0b12,
+            #11111b 50%,
+            #0d0d16
+        );
+
+    color: var(--lastcine-text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================
+   ENLACES
+   ========================================== */
+
+a {
+
+    text-decoration: none;
+
+    color: var(--lastcine-primary);
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+a:hover {
+
+    color: #a78bfa;
+
+}
+
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+
+.navbar {
+
+    background:
+        rgba(11, 11, 18, 0.88) !important;
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.35);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+
+.navbar-brand {
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    color: white !important;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.navbar-brand:hover {
+
+    transform: scale(1.03);
+
+    color: #a78bfa !important;
+
+}
+
+
+.navbar-brand i {
+
+    margin-right: 7px;
+
+    color: var(--lastcine-primary);
+
+    filter:
+        drop-shadow(0 0 8px rgba(139, 92, 246, 0.7));
+
+}
+
+
+.navbar .nav-link {
+
+    color: #cbd5e1 !important;
+
+    border-radius: 10px;
+
+    padding:
+        8px 12px !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.navbar .nav-link:hover {
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    color: white !important;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+   ========================================== */
+
+main {
+
+    min-height: calc(100vh - 140px);
+
+    padding-top: 25px;
+
+    padding-bottom: 40px;
+
+}
+
+
+/* ==========================================
+   TÍTULOS
+   ========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+h1 {
+
+    letter-spacing: -0.8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #a78bfa
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+}
+
+
+h2,
+h3 {
+
+    letter-spacing: -0.3px;
+
+}
+
+
+/* ==========================================
+   TEXTO
+   ========================================== */
+
+.text-muted {
+
+    color: var(--lastcine-muted) !important;
+
+}
+
+
+/* ==========================================
+   TARJETAS
+   ========================================== */
+
+.card {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        ) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08) !important;
+
+    border-radius:
+        var(--lastcine-radius) !important;
+
+    color: var(--lastcine-text);
+
+    overflow: hidden;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+}
+
+
+.card.shadow-sm {
+
+    box-shadow:
+        var(--lastcine-shadow) !important;
+
+}
+
+
+.card-header {
+
+    background:
+        rgba(255, 255, 255, 0.035) !important;
+
+    color: white;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08) !important;
+
+    border-top-left-radius:
+        var(--lastcine-radius) !important;
+
+    border-top-right-radius:
+        var(--lastcine-radius) !important;
+
+}
+
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+
+.btn {
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    border: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+.btn:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+}
+
+
+.btn:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* BOTÓN PRINCIPAL */
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--lastcine-primary),
+            var(--lastcine-secondary)
+        ) !important;
+
+    box-shadow:
+        0 5px 20px rgba(111, 66, 193, 0.30);
+
+}
+
+
+.btn-primary:hover {
+
+    box-shadow:
+        0 8px 28px rgba(111, 66, 193, 0.45);
+
+}
+
+
+/* BOTÓN ÉXITO */
+
+.btn-success {
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        ) !important;
+
+    border: none;
+
+}
+
+
+/* BOTÓN PELIGRO */
+
+.btn-danger {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dc2626,
+            #ef4444
+        ) !important;
+
+}
+
+
+/* ==========================================
+   FORMULARIOS
+   ========================================== */
+
+.form-control,
+.form-select {
+
+    background:
+        rgba(255, 255, 255, 0.055) !important;
+
+    color: white !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12) !important;
+
+    border-radius: 10px;
+
+    min-height: 44px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.form-control::placeholder {
+
+    color: #71717a;
+
+}
+
+
+.form-control:focus,
+.form-select:focus {
+
+    background:
+        rgba(255, 255, 255, 0.08) !important;
+
+    border-color:
+        var(--lastcine-primary) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.15),
+        0 0 20px rgba(139, 92, 246, 0.08);
+
+}
+
+
+.form-label {
+
+    margin-bottom: 7px;
+
+    color: #d1d5db;
+
+    font-weight: 600;
+
+}
+
+
+/* SELECT */
+
+.form-select option {
+
+    background: #181824;
+
+    color: white;
+
+}
+
+
+/* ==========================================
+   TEXTAREA
+   ========================================== */
+
+textarea.form-control {
+
+    min-height: 110px;
+
+    resize: vertical;
+
+}
+
+
+/* ==========================================
+   TABLAS
+   ========================================== */
+
+.table {
+
+    margin-bottom: 0;
+
+    color: var(--lastcine-text) !important;
+
+}
+
+
+.table > :not(caption) > * > * {
+
+    background-color: transparent !important;
+
+    color: inherit;
+
+    border-color:
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.table thead th {
+
+    white-space: nowrap;
+
+    font-size: 0.85rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    color: #a78bfa;
+
+    background:
+        rgba(139, 92, 246, 0.08) !important;
+
+}
+
+
+.table tbody tr {
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.table tbody tr:hover {
+
+    background:
+        rgba(139, 92, 246, 0.07) !important;
+
+}
+
+
+/* ==========================================
+   BADGES
+   ========================================== */
+
+.badge {
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    padding:
+        6px 10px;
+
+}
+
+
+/* ==========================================
+   ALERTAS
+   ========================================== */
+
+.alert {
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.alert-success {
+
+    background:
+        rgba(34, 197, 94, 0.10);
+
+    color: #86efac;
+
+}
+
+
+.alert-danger {
+
+    background:
+        rgba(239, 68, 68, 0.10);
+
+    color: #fca5a5;
+
+}
+
+
+.alert-warning {
+
+    background:
+        rgba(245, 158, 11, 0.10);
+
+    color: #fcd34d;
+
+}
+
+
+/* ==========================================
+   BOTONES DE ACCIONES
+   ========================================== */
+
+.btn-group .btn {
+
+    transform: none;
+
+}
+
+
+.btn-group .btn:hover {
+
+    transform: none;
+
+}
+
+
+/* ==========================================
+   DASHBOARD
+   ========================================== */
+
+.dashboard-card {
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.025)
+        );
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(139, 92, 246, 0.12);
+
+}
+
+
+/* ==========================================
+   ICONOS DEL DASHBOARD
+   ========================================== */
+
+.dashboard-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    font-size: 1.5rem;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--lastcine-primary),
+            var(--lastcine-secondary)
+        );
+
+    box-shadow:
+        0 8px 20px rgba(111, 66, 193, 0.30);
+
+}
+
+
+/* ==========================================
+   PELÍCULAS
+   ========================================== */
+
+.movie-card {
+
+    height: 100%;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171722,
+            #101018
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.movie-card:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.01);
+
+    border-color:
+        rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(139, 92, 246, 0.15);
+
+}
+
+
+.movie-icon {
+
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb,
+            #db2777
+        );
+
+    color: white;
+
+    font-size: 3.5rem;
+
+}
+
+
+.movie-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    filter: blur(5px);
+
+    top: -80px;
+
+    right: -50px;
+
+}
+
+
+.movie-icon i {
+
+    position: relative;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 5px 12px rgba(0, 0, 0, 0.35));
+
+}
+
+
+/* ==========================================
+   STOCK
+   ========================================== */
+
+.stock-bajo {
+
+    color: #f87171;
+
+    font-weight: 700;
+
+}
+
+
+.stock-normal {
+
+    color: #4ade80;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================
+   FACTURACIÓN
+   ========================================== */
+
+.total-factura {
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #86efac
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+
+    margin-top: 50px;
+
+    padding:
+        25px 0;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    color: #9ca3af;
+
+}
+
+
+footer a {
+
+    color: #a78bfa;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+footer a:hover {
+
+    color: white;
+
+}
+
+
+/* ==========================================
+   ANIMACIÓN DE ENTRADA
+   ========================================== */
+
+.fade-in {
+
+    animation:
+        fadeIn 0.45s ease-out;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================
+   LOADING
+   ========================================== */
+
+.loading {
+
+    pointer-events: none;
+
+    opacity: 0.55;
+
+    filter: grayscale(0.3);
+
+}
+
+
+/* ==========================================
+   SCROLLBAR
+   ========================================== */
+
+::-webkit-scrollbar {
+
+    width: 9px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: #0b0b12;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            #7c3aed,
+            #2563eb
+        );
+
+    border-radius: 10px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        linear-gradient(
+            #8b5cf6,
+            #3b82f6
+        );
+
+}
+
+
+/* ==========================================
+   SELECCIÓN DE TEXTO
+   ========================================== */
+
+::selection {
+
+    background:
+        rgba(139, 92, 246, 0.45);
+
+    color: white;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    h1 {
+
+        font-size: 1.7rem;
+
+    }
+
+
+    .table {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .btn {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .card-body {
+
+        padding: 1rem;
+
+    }
+
+
+    .movie-icon {
+
+        height: 150px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    h1 {
+
+        font-size: 1.5rem;
+
+    }
+
+
+    .btn {
+
+        width: 100%;
+
+    }
+
+
+    .btn-group .btn {
+
+        width: auto;
+
+    }
+
+
+    main {
+
+        padding-top: 15px;
+
+    }
+
+}
+
+
+/* ==========================================
+   IMPRESIÓN
+   ========================================== */
+
+@media print {
+
+    .navbar,
+    footer,
+    .btn,
+    .alert {
+
+        display: none !important;
+
+    }
+
+
+    body {
+
+        background: white;
+
+        color: black;
+
+    }
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+
+        color: black;
+
+    }
+
+
+    .card {
+
+        background: white !important;
+
+        color: black;
+
+        box-shadow: none !important;
+
+        border:
+            1px solid #ddd !important;
+
+    }
+
+}
+

@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Página principal
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("index.html")
 
 
 
@@ -37,7 +37,26 @@ def productos():
 # Página de clientes
 @app.route("/clientes")
 def clientes():
-    return render_template("clientes.html")
+    clientes = [
+        {
+            "id": 1,
+            "nombre": "Juan Pérez",
+            "email": "juan@mail.com",
+            "telefono": "0999999999"
+        },
+        {
+            "id": 2,
+            "nombre": "María López",
+            "email": "maria@gmail.com",
+            "telefono": "0988888888"
+        }
+    ]
+
+    return render_template(
+        "clientes.html",
+        clientes=clientes
+    )
+
 
 
 # Página de proveedores

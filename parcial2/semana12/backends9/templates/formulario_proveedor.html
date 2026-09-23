@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+    {% if proveedor %}
+        Editar proveedor - LastCine
+    {% else %}
+        Nuevo proveedor - LastCine
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ==========================================
+     ENCABEZADO
+     ========================================== -->
+
+<div class="mb-4">
+
+    <a
+        href="{{ url_for('proveedores') }}"
+        class="btn btn-outline-secondary mb-3"
+    >
+
+        <i class="bi bi-arrow-left"></i>
+
+        Volver
+
+    </a>
+
+
+    <h1 class="fw-bold">
+
+        {% if proveedor %}
+
+            <i class="bi bi-building-gear text-warning"></i>
+
+            Editar proveedor
+
+        {% else %}
+
+            <i class="bi bi-building-add text-warning"></i>
+
+            Nuevo proveedor
+
+        {% endif %}
+
+    </h1>
+
+
+    <p class="text-muted">
+
+        {% if proveedor %}
+
+            Modifica la información del proveedor.
+
+        {% else %}
+
+            Registra un nuevo proveedor en LastCine.
+
+        {% endif %}
+
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+     FORMULARIO
+     ========================================== -->
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body p-4">
+
+                <form method="POST">
+
+
+                    <!-- ==================================
+                         NOMBRE
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="nombre"
+                            class="form-label fw-semibold"
+                        >
+
+                            Nombre *
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nombre"
+                            name="nombre"
+                            value="{{ proveedor['nombre'] if proveedor else '' }}"
+                            placeholder="Ej. Distribuidora Cinematográfica"
+                            maxlength="150"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="row">
+
+
+                        <!-- ==============================
+                             TELÉFONO
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="telefono"
+                                class="form-label fw-semibold"
+                            >
+
+                                Teléfono
+
+                            </label>
+
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                id="telefono"
+                                name="telefono"
+                                value="{{ proveedor['telefono'] if proveedor else '' }}"
+                                placeholder="Ej. 0991234567"
+                                maxlength="10"
+                                inputmode="numeric"
+                            >
+
+                        </div>
+
+
+                        <!-- ==============================
+                             EMAIL
+                             ============================== -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label
+                                for="email"
+                                class="form-label fw-semibold"
+                            >
+
+                                Correo electrónico
+
+                            </label>
+
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                value="{{ proveedor['email'] if proveedor else '' }}"
+                                placeholder="Ej. proveedor@email.com"
+                                maxlength="150"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         DIRECCIÓN
+                         ================================== -->
+
+                    <div class="mb-3">
+
+                        <label
+                            for="direccion"
+                            class="form-label fw-semibold"
+                        >
+
+                            Dirección
+
+                        </label>
+
+
+                        <textarea
+                            class="form-control"
+                            id="direccion"
+                            name="direccion"
+                            rows="3"
+                            maxlength="200"
+                            placeholder="Ej. Av. Principal y Calle Secundaria"
+                        >{{ proveedor['direccion'] if proveedor else '' }}</textarea>
+
+                    </div>
+
+
+                    <!-- ==================================
+                         INFORMACIÓN
+                         ================================== -->
+
+                    <div class="alert alert-info">
+
+                        <i class="bi bi-info-circle"></i>
+
+                        El campo marcado con
+                        <strong>*</strong>
+                        es obligatorio.
+
+                    </div>
+
+
+                    <!-- ==================================
+                         BOTONES
+                         ================================== -->
+
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <a
+                            href="{{ url_for('proveedores') }}"
+                            class="btn btn-secondary"
+                        >
+
+                            <i class="bi bi-x-circle"></i>
+
+                            Cancelar
+
+                        </a>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-warning"
+                        >
+
+                            {% if proveedor %}
+
+                                <i class="bi bi-save"></i>
+
+                                Guardar cambios
+
+                            {% else %}
+
+                                <i class="bi bi-building-add"></i>
+
+                                Guardar proveedor
+
+                            {% endif %}
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
